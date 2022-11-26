@@ -12,14 +12,14 @@
 
 1. (1 punto) Para cada uno de los valores del fichero code2.ts, ¿Qué tipo de datos inferirá TypeScript? Explica por qué se ha inferido este tipo de datos.
 
-a->
-b->
-c->
-d->
-e->
-f->
-g->
-h->
+- a->
+- b->
+- c->
+- d->
+- e->
+- f->
+- g->
+- h->
 
 2. (1 punto) ¿Por qué se dispara cada uno de los errores del fichero code3.ts?
 
