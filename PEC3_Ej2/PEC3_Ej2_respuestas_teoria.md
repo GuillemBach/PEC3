@@ -12,18 +12,23 @@
 
 1. (1 punto) Para cada uno de los valores del fichero code2.ts, ¿Qué tipo de datos inferirá TypeScript? Explica por qué se ha inferido este tipo de datos.
 
-- a->
-- b->
-- c->
-- d->
-- e->
-- f->
-- g->
-- h->
+- a -> Number (:number): Numeros enteros o flotantes. Al no estar entre commilas y ser numeros TS inferira como tipo number.
+- b -> String (:string): Carácteres y entre commilas, TS inferira como tipo string.
+- c -> String(:string): Carácteres y entre commilas, TS inferira como tipo string. También podria tiparlo del tipo any, dependiendo de como se le asigne el valor.
+- d -> Array de booleanos (:boolean[]): El array esta compuesto unicamente de booleanos, TS inferira como tipo array de booleanos.
+- e -> Objecto con una propiedad (type) de tipo String (type:string =): La propiedad tiene un valor de caracteres entre comillas, TS inferira como tipo string la propiedad.
+- f -> Tupla de Numbers y Booleanos (:[number, boolean]): Al detectar que el primer valor de la tupla es un numero entero y el segundo elementu un bolleano, TS inferira como tipo una tupla que puede contener solamente numbers y booleanos.
+- g -> Array de numbers (:number[]): al haber unicamente un valor entero dentro del array, TS inferira como tipo array de numbers.
+- h -> Null (:null): Se le asigna Null al valor de h, TS inferira como tipo null.
 
 2. (1 punto) ¿Por qué se dispara cada uno de los errores del fichero code3.ts?
 
+- i: Se trata de una constante que tiene que mantener en todo el código el valor que se le ha asigando al declararla. No se le puede asignar el valor de 4 a i.
+- j: Al haber creado/declarado j como un array que únicamente contiene números enteros, a posteriori se espera que únciamente se le asignen numbers. TS la ha tipado de un array de tipo numbers.
+- k: Un tipo never solo puede ser asignado con el valor never
+- m: Al tratarse de una operación aritmética, la parte izquierda tiene que ser si o si un number, y en este caso no se sabe el tipo, por lo tanto, TS da un error.
 
 
 3. (0.5 puntos) ¿Cuál es la diferencia entre una clase y una interface en TypeScript?
 
+- Las interfaces solo se utilizan para contener la información de tipo de varios atributos correspondientes a un objeto, en cambio, una clase es necesaria para contener la implementación de diferentes objetos con diferentes propiedades de un tipo y métodos.
