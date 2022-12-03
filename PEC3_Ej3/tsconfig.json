@@ -1,12 +1,12 @@
 {
-  "compilerOptions": {
+  "compilerOptions": { //Definición de las opciones y los valores del compilador.
     /* Basic Options */
-    "target": "es2015", 
-    "module": "commonjs", 
-    "outDir": "./dist",   
-    "rootDir": "./src", 
-    "strict": true,
-    "incremental": true,
-    "tsBuildInfoFile": "./buildcache",
+    "target": "es2015", // Se especifica la version de ECMAScript en la que se quiere compilar el código
+    "module": "commonjs", //Esta opción establece el sistema de módulos que se utilizara en los archivos compilados (.JS).
+    "outDir": "./dist", //Opción para especificar la ruta a la carpeta en donde guardar los archivos compilados y se va a llamar “dist”.  
+    "rootDir": "./src", //Se especifica el directorio raíz común de todas las carpetas del proyecto (donde TypeScript busca nuestro código del proyecto).
+    "strict": true, // Habilita todas las opciones de verificación de tipo estrictas, como noImplicitAny, etc. Se habilita esta opción para poder mejorar la seguridad de tipos en el código.
+    "incremental": true, // Guarda información de la última compilación para ahorrar tiempo en la siguiente compilación para los cambios dados
+    "tsBuildInfoFile": "./buildcache", //Directorio donde guardar los archivos (.tsbuildinfo) que contienen la información de la ultima compilación al tener habilitado la opcion 'incremental'.
   }
 }
