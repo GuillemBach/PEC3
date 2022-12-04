@@ -29,7 +29,7 @@ class TodoController {
   };
 
   handleAddTodo = (todoText: any) => {
-    this.service.addTodo(todoText);
+    this.service.addTodo(todoText,);
   };
 
   handleEditTodo = (id: any, todoText: any) => {

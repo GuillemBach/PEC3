@@ -15,15 +15,15 @@ class TodoView {
 
   constructor() {
     this.app = this.getElement("#root");
-    this.form = this.createElement("form");
-    this.input = this.createElement("input");
+    this.form = document.createElement("form");
+    this.input = document.createElement("input");
     this.input.type = "text";
     this.input.placeholder = "Add todo";
     this.input.name = "todo";
-    this.submitButton = this.createElement("button");
+    this.submitButton = document.createElement("button");
     this.submitButton.textContent = "Submit";
     this.form.append(this.input, this.submitButton);
-    this.title = this.createElement("h1");
+    this.title = document.createElement("h1");
     //this.title = this.createElement(tagName: string, Option?: ElementCreationOptions): HTMLElement;
     this.title.textContent = "Todos";
     this.todoList = this.createElement("ul", "todo-list");
@@ -63,25 +63,25 @@ class TodoView {
 
     // Show default message
     if (todos.length === 0) {
-      const p = this.createElement("p");
+      const p = document.createElement("p");
       p.textContent = "Nothing to do! Add a task?";
-      this.todoList.append(p);
+      this.todoList.push(p);
     } else {
       // Create nodes
       todos.forEach((todo: { id: any; complete: any; text: any; }) => {
-        const li = this.createElement("li");
+        const li = document.createElement("li");
         li.id = todo.id;
 
-        const checkbox = this.createElement("input");
+        const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = todo.complete;
 
-        const span = this.createElement("span");
+        const span:any = document.createElement("span");
         span.contentEditable = true;
         span.classList.add("editable");
 
         if (todo.complete) {
-          const strike = this.createElement("s");
+          const strike = document.createElement("s");
           strike.textContent = todo.text;
           span.append(strike);
         } else {
@@ -93,7 +93,7 @@ class TodoView {
         li.append(checkbox, span, deleteButton);
 
         // Append nodes
-        this.todoList.append(li);
+        this.todoList.push(li);
       });
     }
 
@@ -102,7 +102,7 @@ class TodoView {
   }
 
   _initLocalListeners() {
-    this.todoList.addEventListener("input", (event: { target: { className: string; innerText: string; }; }) => {
+    this.todoList?.addEventListener("input", (event: { target: { className: string; innerText: string; }; }) => {
       if (event.target.className === "editable") {
         this._temporaryTodoText = event.target.innerText;
       }

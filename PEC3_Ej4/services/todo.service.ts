@@ -10,11 +10,11 @@ class TodoService {
   id:number;
   constructor() {
     this.todos = (JSON.parse(localStorage.getItem("todos") || "")).map(
-      todo => new Todo(todo)
+      (todo: { complete: boolean; text: string; } | undefined) => new Todo(todo)
     );
   }
 
-  bindTodoListChanged(callback) {
+  bindTodoListChanged(callback: Function) {
     this.onTodoListChanged = callback;
   }
 
@@ -23,13 +23,13 @@ class TodoService {
     localStorage.setItem("todos", JSON.stringify(todos));
   }
 
-  addTodo(text:string) {
-    this.todos.push(new Todo({text}));
+  addTodo(text:string, complete:boolean) {
+    this.todos.push(new Todo({text,complete}));
 
     this._commit(this.todos);
   }
 
-  editTodo(id, updatedText) {
+  editTodo(id: number, updatedText: string) {
     this.todos = this.todos.map(todo =>
       todo.id === id
         ? new Todo({
@@ -42,13 +42,13 @@ class TodoService {
     this._commit(this.todos);
   }
 
-  deleteTodo(_id) {
+  deleteTodo(_id: number) {
     this.todos = this.todos.filter(({ id }) => id !== _id);
 
     this._commit(this.todos);
   }
 
-  toggleTodo(_id) {
+  toggleTodo(_id:number) {
     this.todos = this.todos.map(todo =>
       todo.id === _id ? new Todo({ ...todo, complete: !todo.complete }) : todo
     );
